@@ -45,6 +45,80 @@
 </head>
 <body>
     <div class="image-container">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTM5a3ExaGs4ODlobGh0cm5xd2hjcWEwaHF1c3JkZG5ib3J3cWRpcCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YQitE4YNQNahy/giphy.gif" alt="Discord Image">
+    </div>
+    <audio autoplay loop>
+        <source src="https://h.top4top.io/m_35723fav81.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="info" id="ip-info">
+        <strong>IP: <span id="ip"></span></strong><br>
+        <span><strong>City:</strong> <span id="city"></span></span><br>
+        <span><strong>Region:</strong> <span id="region"></span></span><br>
+        <span><strong>Country:</strong> <span id="country"></span></span><br>
+        <span><strong>Location:</strong> <span id="loc"></span></span><br>
+        <span><strong>Organization:</strong> <span id="org"></span></span><br>
+        <span><strong>Timezone:</strong> <span id="timezone"></span></span>
+    </div>
+    <div class="text">الكل عل زبي</div>
+    <div class="text">(9z71) حسابي دس حياكم</div>
+    <script>
+         fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            delete data.readme;
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.textContent = JSON.stringify(data, null, 2);
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>discord.gg/uaee</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDhlYzZldGNhMm90ZzJldGphOXJiZHI1N3B6dDN5NWJxeXBpdnR6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0IyeheChYxx2byDu/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #0000ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .image-container img {
+            width: 750px; 
+            height: auto;
+            border: 2px solid #0000ff; 
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); 
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #0000ff; 
+            text-shadow: 0px 0px 8px #0000ff, 0px 0px 15px #0000ff, 0px 0px 25px #0000ff; 
+            letter-spacing: 4.5px; 
+            white-space: pre-wrap;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 3em; 
+            color: #0000ff; 
+            text-shadow: 0px 0px 8px #0000ff, 0px 0px 15px #0000ff, 0px 0px 25px #0000ff; 
+            letter-spacing: 4.5px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhsvkPK3an9JYpXuGR6hzZp8wa7NijjrMgTQ&s" alt="Discord Image">
     </div>
     <audio autoplay loop>
