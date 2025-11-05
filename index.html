@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>منيو مع صورة رأسية</title>
+<title>منيو مع صورة رأسية ومكان أعلى يسار</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background: transparent; /* لا خلفية بيضاء أو أي لون */
     font-family: 'Roboto', sans-serif;
-    background: transparent;
 }
 
 .menu-container {
+    position: fixed; /* ثبات في الشاشة */
+    top: 15px;      /* مسافة من الأعلى */
+    left: 15px;     /* مسافة من اليسار */
     width: 320px;
     background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
     border-radius: 15px;
@@ -26,19 +25,18 @@ body {
     color: #fff;
     direction: rtl;
     font-size: 14px;
+    z-index: 1000; /* ليكون فوق العناصر */
 }
 
-/* تعديل رأس القائمة ليحتوي صورة بدل النص */
+/* رأس القائمة بصورة */
 .menu-header {
     position: relative;
     height: 80px;
     background: url('https://media.discordapp.net/attachments/1400423613823451216/1435696822508326974/image.png?ex=690ce85c&is=690b96dc&hm=b30c65498d708f31db6e745200a090eec8b473ff08bb1d0fd70d1743699861b8&=&format=webp&quality=lossless') no-repeat center center;
     background-size: contain;
     user-select: none;
-    /* حذف النص تمامًا */
 }
 
-/* إخفاء تأثير النص المشتعل */
 .menu-header::before {
     content: none;
 }
