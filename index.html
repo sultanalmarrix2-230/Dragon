@@ -1,234 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>قائمة ALISOMALI</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-  /* تهيئة الصفحة بالكامل */
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    background: url('https://media.discordapp.net/attachments/1400423613823451216/1435696822508326974/image.png?ex=690ce85c&is=690b96dc&hm=b30c65498d708f31db6e745200a090eec8b473ff08bb1d0fd70d1743699861b8&=&format=webp&quality=lossless') no-repeat center center fixed;
-    background-size: cover;
-    direction: rtl;
-  }
-
-  /* حاوية المنيو */
-  .menu-container {
-    width: 320px;
-    background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(255, 115, 0, 0.6);
-    color: #fff;
-    position: fixed;
-    top: 30px;   /* المسافة من الأعلى */
-    left: 30px;  /* المسافة من اليسار */
-    user-select: none;
-  }
-
-  /* العنوان العلوي */
-  .menu-header {
-    background: transparent; /* بدون خلفية لأن عندنا صورة خلفية */
-    padding: 12px 0;
-    text-align: center;
-    font-weight: 900;
-    font-size: 34px;
-    font-family: 'Impact', sans-serif;
-    letter-spacing: 2px;
-    color: #f76c14;
-    text-transform: uppercase;
-    border-bottom: 1px solid #444;
-  }
-
-  /* العنوان الفرعي */
-  .menu-subheader {
-    background-color: transparent;
-    text-align: center;
-    color: #f76c14;
-    font-weight: 600;
-    font-size: 12px;
-    padding: 6px 0;
-  }
-
-  /* قائمة الخيارات */
-  .menu-list {
-    max-height: 280px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-  }
-
-  .menu-list::-webkit-scrollbar {
-    width: 8px;
-  }
-  .menu-list::-webkit-scrollbar-track {
-    background: #1a1a1a;
-  }
-  .menu-list::-webkit-scrollbar-thumb {
-    background: #f76c14;
-    border-radius: 10px;
-  }
-
-  /* عناصر القائمة */
-  .menu-item {
-    display: flex;
-    align-items: center;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-left: 4px solid transparent;
-    transition: background 0.3s, border-left-color 0.3s;
-    font-size: 14px;
-    color: #ccc;
-  }
-
-  .menu-item:hover,
-  .menu-item.active {
-    background-color: #f76c14;
-    color: #fff;
-    border-left-color: #ff8c23;
-  }
-
-  /* أيقونات جانبية */
-  .menu-item .icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 12px;
-    flex-shrink: 0;
-    fill: currentColor;
-  }
-
-  /* نص العنصر */
-  .menu-item span {
-    flex-grow: 1;
-  }
-
-  /* السهم */
-  .menu-item .arrow {
-    margin-left: 10px;
-    width: 12px;
-    height: 12px;
-    border-right: 2.5px solid currentColor;
-    border-top: 2.5px solid currentColor;
-    transform: rotate(-45deg);
-  }
-
-  /* المربع السفلي */
-  .menu-footer {
-    background-color: transparent;
-    font-size: 12px;
-    color: #ccc;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>Executer Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 50px;
+        }
+        .menu {
+            display: inline-block;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .menu button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-<div class="menu-container" role="menu" aria-label="Main Menu">
-  <div class="menu-header">ALISOMALI</div>
-  <div class="menu-subheader">Main Menu</div>
-
-  <div class="menu-list" tabindex="0">
-    <div class="menu-item active" role="menuitem" tabindex="0" data-index="1/6">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="none"/></svg>
-      <span>Visuals</span>
-      <div class="arrow"></div>
+    <div class="menu">
+        <h2>Executer Menu</h2>
+        <button onclick="runScript1()">تشغيل السكربت 1</button>
+        <button onclick="runScript2()">تشغيل السكربت 2</button>
+        <button onclick="runScript3()">تشغيل السكربت 3</button>
     </div>
-    <div class="menu-item" role="menuitem" tabindex="-1" data-index="2/6">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 1 6 6v2h-4v6H8v-6H4v-2a6 6 0 0 1 8-6z"/></svg>
-      <span>Player</span>
-      <div class="arrow"></div>
-    </div>
-    <div class="menu-item" role="menuitem" tabindex="-1" data-index="3/6">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v3H4zM10 8l6 8H4z"/></svg>
-      <span>Weapons</span>
-      <div class="arrow"></div>
-    </div>
-    <div class="menu-item" role="menuitem" tabindex="-1" data-index="4/6">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="none"/></svg>
-      <span>World</span>
-      <div class="arrow"></div>
-    </div>
-    <div class="menu-item" role="menuitem" tabindex="-1" data-index="5/6">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M5 13h14v7H5zM6 6h12v5H6z"/></svg>
-      <span>Online Players</span>
-      <div class="arrow"></div>
-    </div>
-    <div class="menu-item" role="menuitem" tabindex="-1" data-index="6/6">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M5 16h14v4H5zM7 6h10v8H7z"/></svg>
-      <span>Vehicles</span>
-      <div class="arrow"></div>
-    </div>
-  </div>
 
-  <div class="menu-footer">
-    <div>Alisomali is tuff</div>
-    <div id="counter">1/6</div>
-  </div>
-</div>
+    <script>
+        // هنا تقدر تضيف السكربتات اللي تريد تشغيلها
+        function runScript1() {
+            alert("تم تشغيل السكربت 1!");
+            // ضع هنا أي كود JS تريده
+        }
 
-<script>
-  const menuList = document.querySelector('.menu-list');
-  const items = Array.from(document.querySelectorAll('.menu-item'));
-  const counter = document.getElementById('counter');
+        function runScript2() {
+            alert("تم تشغيل السكربت 2!");
+            // ضع هنا أي كود JS تريده
+        }
 
-  // تفعيل اختيار بالماوس
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      setActiveItem(item);
-    });
-  });
-
-  function setActiveItem(newActive) {
-    items.forEach(i => {
-      i.classList.remove('active');
-      i.setAttribute('tabindex', '-1');
-    });
-    newActive.classList.add('active');
-    newActive.setAttribute('tabindex', '0');
-    newActive.focus();
-
-    // تحديث العدّاد
-    counter.textContent = newActive.getAttribute('data-index');
-
-    // تمرير العنصر المحدد إلى الوسط إذا خارج العرض
-    const listRect = menuList.getBoundingClientRect();
-    const itemRect = newActive.getBoundingClientRect();
-
-    if (itemRect.top < listRect.top) {
-      newActive.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (itemRect.bottom > listRect.bottom) {
-      newActive.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }
-  }
-
-  // التعامل مع ضغطات الكيبورد لتحريك التحديد
-  menuList.addEventListener('keydown', (e) => {
-    const currentIndex = items.findIndex(i => i.classList.contains('active'));
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      let nextIndex = (currentIndex + 1) % items.length;
-      setActiveItem(items[nextIndex]);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      let prevIndex = (currentIndex - 1 + items.length) % items.length;
-      setActiveItem(items[prevIndex]);
-    }
-  });
-
-  // تعيين التركيز الأولي
-  const initialActive = document.querySelector('.menu-item.active');
-  if (initialActive) {
-    initialActive.focus();
-    counter.textContent = initialActive.getAttribute('data-index');
-  }
-</script>
+        function runScript3() {
+            alert("تم تشغيل السكربت 3!");
+            // ضع هنا أي كود JS تريده
+        }
+    </script>
 
 </body>
 </html>
