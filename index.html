@@ -3,154 +3,164 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>منيو مع صورة رأسية ومكان أعلى يسار</title>
+<title>قائمة ALISOMALI</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body {
+  /* تهيئة الصفحة بالكامل */
+  html, body {
     margin: 0;
-    background: transparent; /* لا خلفية بيضاء أو أي لون */
+    padding: 0;
+    height: 100%;
     font-family: 'Roboto', sans-serif;
-}
+    background: url('https://media.discordapp.net/attachments/1400423613823451216/1435696822508326974/image.png?ex=690ce85c&is=690b96dc&hm=b30c65498d708f31db6e745200a090eec8b473ff08bb1d0fd70d1743699861b8&=&format=webp&quality=lossless') no-repeat center center fixed;
+    background-size: cover;
+    direction: rtl;
+  }
 
-.menu-container {
-    position: fixed; /* ثبات في الشاشة */
-    top: 15px;      /* مسافة من الأعلى */
-    left: 15px;     /* مسافة من اليسار */
+  /* حاوية المنيو */
+  .menu-container {
     width: 320px;
     background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(255, 115, 0, 0.7);
+    box-shadow: 0 0 15px rgba(255, 115, 0, 0.6);
     color: #fff;
-    direction: rtl;
-    font-size: 14px;
-    z-index: 1000; /* ليكون فوق العناصر */
-}
-
-/* رأس القائمة بصورة */
-.menu-header {
-    position: relative;
-    height: 80px;
-    background: url('https://media.discordapp.net/attachments/1400423613823451216/1435696822508326974/image.png?ex=690ce85c&is=690b96dc&hm=b30c65498d708f31db6e745200a090eec8b473ff08bb1d0fd70d1743699861b8&=&format=webp&quality=lossless') no-repeat center center;
-    background-size: contain;
+    position: fixed;
+    top: 30px;   /* المسافة من الأعلى */
+    left: 30px;  /* المسافة من اليسار */
     user-select: none;
-}
+  }
 
-.menu-header::before {
-    content: none;
-}
+  /* العنوان العلوي */
+  .menu-header {
+    background: transparent; /* بدون خلفية لأن عندنا صورة خلفية */
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 34px;
+    font-family: 'Impact', sans-serif;
+    letter-spacing: 2px;
+    color: #f76c14;
+    text-transform: uppercase;
+    border-bottom: 1px solid #444;
+  }
 
-.menu-subheader {
-    background-color: #1b1b1b;
+  /* العنوان الفرعي */
+  .menu-subheader {
+    background-color: transparent;
     text-align: center;
     color: #f76c14;
     font-weight: 600;
     font-size: 12px;
     padding: 6px 0;
-    user-select: none;
-}
+  }
 
-.menu-list {
+  /* قائمة الخيارات */
+  .menu-list {
     max-height: 280px;
     overflow-y: auto;
     scroll-behavior: smooth;
-}
+  }
 
-.menu-list::-webkit-scrollbar {
+  .menu-list::-webkit-scrollbar {
     width: 8px;
-}
-
-.menu-list::-webkit-scrollbar-track {
+  }
+  .menu-list::-webkit-scrollbar-track {
     background: #1a1a1a;
-}
-
-.menu-list::-webkit-scrollbar-thumb {
+  }
+  .menu-list::-webkit-scrollbar-thumb {
     background: #f76c14;
     border-radius: 10px;
-}
+  }
 
-.menu-item {
+  /* عناصر القائمة */
+  .menu-item {
     display: flex;
     align-items: center;
     padding: 12px 20px;
     cursor: pointer;
     border-left: 4px solid transparent;
-    transition: all 0.3s ease;
-}
+    transition: background 0.3s, border-left-color 0.3s;
+    font-size: 14px;
+    color: #ccc;
+  }
 
-.menu-item:hover,
-.menu-item.active {
-    background: #ff6b00;
-    border-left-color: #fff200;
+  .menu-item:hover,
+  .menu-item.active {
+    background-color: #f76c14;
     color: #fff;
-}
+    border-left-color: #ff8c23;
+  }
 
-.menu-item .icon {
+  /* أيقونات جانبية */
+  .menu-item .icon {
     width: 20px;
     height: 20px;
     margin-left: 12px;
     flex-shrink: 0;
     fill: currentColor;
-}
+  }
 
-.menu-item span {
+  /* نص العنصر */
+  .menu-item span {
     flex-grow: 1;
-}
+  }
 
-.menu-item .arrow {
+  /* السهم */
+  .menu-item .arrow {
     margin-left: 10px;
     width: 12px;
     height: 12px;
-    border-right: 2px solid currentColor;
-    border-top: 2px solid currentColor;
+    border-right: 2.5px solid currentColor;
+    border-top: 2.5px solid currentColor;
     transform: rotate(-45deg);
-}
+  }
 
-.menu-footer {
-    background-color: #1b1b1b;
+  /* المربع السفلي */
+  .menu-footer {
+    background-color: transparent;
     font-size: 12px;
     color: #ccc;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-    user-select: none;
-}
+  }
 </style>
 </head>
 <body>
 
 <div class="menu-container" role="menu" aria-label="Main Menu">
-  <div class="menu-header"></div>
+  <div class="menu-header">ALISOMALI</div>
   <div class="menu-subheader">Main Menu</div>
 
   <div class="menu-list" tabindex="0">
-    <div class="menu-item active" role="menuitem" tabindex="-1">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+    <div class="menu-item active" role="menuitem" tabindex="0" data-index="1/6">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="none"/></svg>
       <span>Visuals</span>
       <div class="arrow"></div>
     </div>
-    <div class="menu-item" role="menuitem" tabindex="-1">
+    <div class="menu-item" role="menuitem" tabindex="-1" data-index="2/6">
       <svg class="icon" viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 1 6 6v2h-4v6H8v-6H4v-2a6 6 0 0 1 8-6z"/></svg>
       <span>Player</span>
       <div class="arrow"></div>
     </div>
-    <div class="menu-item" role="menuitem" tabindex="-1">
+    <div class="menu-item" role="menuitem" tabindex="-1" data-index="3/6">
       <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v3H4zM10 8l6 8H4z"/></svg>
       <span>Weapons</span>
       <div class="arrow"></div>
     </div>
-    <div class="menu-item" role="menuitem" tabindex="-1">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
+    <div class="menu-item" role="menuitem" tabindex="-1" data-index="4/6">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="none"/></svg>
       <span>World</span>
       <div class="arrow"></div>
     </div>
-    <div class="menu-item" role="menuitem" tabindex="-1">
+    <div class="menu-item" role="menuitem" tabindex="-1" data-index="5/6">
       <svg class="icon" viewBox="0 0 24 24"><path d="M5 13h14v7H5zM6 6h12v5H6z"/></svg>
       <span>Online Players</span>
       <div class="arrow"></div>
     </div>
-    <div class="menu-item" role="menuitem" tabindex="-1">
+    <div class="menu-item" role="menuitem" tabindex="-1" data-index="6/6">
       <svg class="icon" viewBox="0 0 24 24"><path d="M5 16h14v4H5zM7 6h10v8H7z"/></svg>
       <span>Vehicles</span>
       <div class="arrow"></div>
@@ -159,60 +169,65 @@ body {
 
   <div class="menu-footer">
     <div>Alisomali is tuff</div>
-    <div class="counter">1/6</div>
+    <div id="counter">1/6</div>
   </div>
 </div>
 
 <script>
-const menuList = document.querySelector('.menu-list');
-const items = Array.from(document.querySelectorAll('.menu-item'));
-const counter = document.querySelector('.counter');
+  const menuList = document.querySelector('.menu-list');
+  const items = Array.from(document.querySelectorAll('.menu-item'));
+  const counter = document.getElementById('counter');
 
-function updateCounter(activeIndex) {
-  counter.textContent = `${activeIndex + 1}/${items.length}`;
-}
-
-function setActiveItem(newActive) {
-  items.forEach(i => {
-    i.classList.remove('active');
-    i.setAttribute('tabindex', '-1');
+  // تفعيل اختيار بالماوس
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      setActiveItem(item);
+    });
   });
-  newActive.classList.add('active');
-  newActive.setAttribute('tabindex', '0');
-  newActive.focus();
 
-  const listRect = menuList.getBoundingClientRect();
-  const itemRect = newActive.getBoundingClientRect();
+  function setActiveItem(newActive) {
+    items.forEach(i => {
+      i.classList.remove('active');
+      i.setAttribute('tabindex', '-1');
+    });
+    newActive.classList.add('active');
+    newActive.setAttribute('tabindex', '0');
+    newActive.focus();
 
-  if (itemRect.top < listRect.top) {
-    newActive.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else if (itemRect.bottom > listRect.bottom) {
-    newActive.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    // تحديث العدّاد
+    counter.textContent = newActive.getAttribute('data-index');
+
+    // تمرير العنصر المحدد إلى الوسط إذا خارج العرض
+    const listRect = menuList.getBoundingClientRect();
+    const itemRect = newActive.getBoundingClientRect();
+
+    if (itemRect.top < listRect.top) {
+      newActive.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (itemRect.bottom > listRect.bottom) {
+      newActive.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
   }
 
-  const activeIndex = items.findIndex(i => i === newActive);
-  updateCounter(activeIndex);
-}
+  // التعامل مع ضغطات الكيبورد لتحريك التحديد
+  menuList.addEventListener('keydown', (e) => {
+    const currentIndex = items.findIndex(i => i.classList.contains('active'));
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      let nextIndex = (currentIndex + 1) % items.length;
+      setActiveItem(items[nextIndex]);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      let prevIndex = (currentIndex - 1 + items.length) % items.length;
+      setActiveItem(items[prevIndex]);
+    }
+  });
 
-items.forEach(item => item.addEventListener('click', () => setActiveItem(item)));
-
-menuList.addEventListener('keydown', (e) => {
-  const currentIndex = items.findIndex(i => i.classList.contains('active'));
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    setActiveItem(items[(currentIndex + 1) % items.length]);
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    setActiveItem(items[(currentIndex - 1 + items.length) % items.length]);
+  // تعيين التركيز الأولي
+  const initialActive = document.querySelector('.menu-item.active');
+  if (initialActive) {
+    initialActive.focus();
+    counter.textContent = initialActive.getAttribute('data-index');
   }
-});
-
-items.forEach(i => i.setAttribute('tabindex', '-1'));
-const initialActive = document.querySelector('.menu-item.active');
-if (initialActive) {
-  initialActive.setAttribute('tabindex', '0');
-  updateCounter(items.indexOf(initialActive));
-}
 </script>
 
 </body>
