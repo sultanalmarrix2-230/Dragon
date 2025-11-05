@@ -3,68 +3,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>قائمة ALISOMALI</title>
+<title>منيو مع صورة رأسية</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-  body {
-    background: #fff; /* خلفية بيضاء فارغة */
-    font-family: 'Roboto', sans-serif;
+body {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-  }
+    font-family: 'Roboto', sans-serif;
+    background: transparent;
+}
 
-  .menu-container {
+.menu-container {
     width: 320px;
     background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(255, 115, 0, 0.6);
+    box-shadow: 0 0 20px rgba(255, 115, 0, 0.7);
     color: #fff;
     direction: rtl;
-  }
+    font-size: 14px;
+}
 
-  /* العنوان العلوي المشتعل */
-  .menu-header {
-    background: #000;
-    padding: 12px 0;
-    text-align: center;
-    font-weight: 900;
-    font-size: 34px;
-    font-family: 'Impact', sans-serif;
-    letter-spacing: 2px;
-    color: transparent;
+/* تعديل رأس القائمة ليحتوي صورة بدل النص */
+.menu-header {
     position: relative;
-    user-select: none;
-    text-transform: uppercase;
-  }
-
-  /* تأثير نص مشتعل باستخدام CSS */
-  .menu-header::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-    background: url('https://i.imgur.com/xuSVvmW.png') repeat;
+    height: 80px;
+    background: url('https://media.discordapp.net/attachments/1400423613823451216/1435696822508326974/image.png?ex=690ce85c&is=690b96dc&hm=b30c65498d708f31db6e745200a090eec8b473ff08bb1d0fd70d1743699861b8&=&format=webp&quality=lossless') no-repeat center center;
     background-size: contain;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: flicker 1.5s infinite alternate;
-  }
+    user-select: none;
+    /* حذف النص تمامًا */
+}
 
-  @keyframes flicker {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.6) saturate(1.3); }
-  }
+/* إخفاء تأثير النص المشتعل */
+.menu-header::before {
+    content: none;
+}
 
-  /* العنوان الفرعي */
-  .menu-subheader {
+.menu-subheader {
     background-color: #1b1b1b;
     text-align: center;
     color: #f76c14;
@@ -72,70 +51,65 @@
     font-size: 12px;
     padding: 6px 0;
     user-select: none;
-  }
+}
 
-  /* قائمة الخيارات */
-  .menu-list {
+.menu-list {
     max-height: 280px;
     overflow-y: auto;
-    scroll-behavior: smooth; /* تمرير سلس */
-  }
+    scroll-behavior: smooth;
+}
 
-  .menu-list::-webkit-scrollbar {
+.menu-list::-webkit-scrollbar {
     width: 8px;
-  }
-  .menu-list::-webkit-scrollbar-track {
+}
+
+.menu-list::-webkit-scrollbar-track {
     background: #1a1a1a;
-  }
-  .menu-list::-webkit-scrollbar-thumb {
+}
+
+.menu-list::-webkit-scrollbar-thumb {
     background: #f76c14;
     border-radius: 10px;
-  }
+}
 
-  /* عنصر القائمة */
-  .menu-item {
+.menu-item {
     display: flex;
     align-items: center;
     padding: 12px 20px;
     cursor: pointer;
     border-left: 4px solid transparent;
-    transition: background 0.3s, border-left-color 0.3s;
-    font-size: 14px;
-  }
+    transition: all 0.3s ease;
+}
 
-  .menu-item:hover,
-  .menu-item.active {
-    background-color: #f76c14;
+.menu-item:hover,
+.menu-item.active {
+    background: #ff6b00;
+    border-left-color: #fff200;
     color: #fff;
-    border-left-color: #ff8c23;
-  }
+}
 
-  /* أيقونات جانبية - باستخدام أيقونات SVG */
-  .menu-item .icon {
+.menu-item .icon {
     width: 20px;
     height: 20px;
     margin-left: 12px;
     flex-shrink: 0;
     fill: currentColor;
-  }
+}
 
-  /* نص العنصر */
-  .menu-item span {
+.menu-item span {
     flex-grow: 1;
-  }
+}
 
-  /* السهم على اليمين */
-  .menu-item .arrow {
+.menu-item .arrow {
     margin-left: 10px;
     width: 12px;
     height: 12px;
-    border-right: 2.5px solid currentColor;
-    border-top: 2.5px solid currentColor;
+    border-right: 2px solid currentColor;
+    border-top: 2px solid currentColor;
     transform: rotate(-45deg);
-  }
+}
 
-  /* المربع السفلي */
-  .menu-footer {
+.menu-footer {
     background-color: #1b1b1b;
     font-size: 12px;
     color: #ccc;
@@ -143,18 +117,18 @@
     display: flex;
     justify-content: space-between;
     user-select: none;
-  }
+}
 </style>
 </head>
 <body>
 
 <div class="menu-container" role="menu" aria-label="Main Menu">
-  <div class="menu-header" data-text="ALISOMALI">ALISOMALI</div>
+  <div class="menu-header"></div>
   <div class="menu-subheader">Main Menu</div>
 
   <div class="menu-list" tabindex="0">
     <div class="menu-item active" role="menuitem" tabindex="-1">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="none"/></svg>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
       <span>Visuals</span>
       <div class="arrow"></div>
     </div>
@@ -169,7 +143,7 @@
       <div class="arrow"></div>
     </div>
     <div class="menu-item" role="menuitem" tabindex="-1">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="none"/></svg>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
       <span>World</span>
       <div class="arrow"></div>
     </div>
@@ -187,61 +161,60 @@
 
   <div class="menu-footer">
     <div>Alisomali is tuff</div>
-    <div>1/7</div>
+    <div class="counter">1/6</div>
   </div>
 </div>
 
 <script>
-  const menuList = document.querySelector('.menu-list');
-  const items = Array.from(document.querySelectorAll('.menu-item'));
+const menuList = document.querySelector('.menu-list');
+const items = Array.from(document.querySelectorAll('.menu-item'));
+const counter = document.querySelector('.counter');
 
-  // تفعيل اختيار بالماوس (احتفظت بالكود القديم)
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      setActiveItem(item);
-    });
+function updateCounter(activeIndex) {
+  counter.textContent = `${activeIndex + 1}/${items.length}`;
+}
+
+function setActiveItem(newActive) {
+  items.forEach(i => {
+    i.classList.remove('active');
+    i.setAttribute('tabindex', '-1');
   });
+  newActive.classList.add('active');
+  newActive.setAttribute('tabindex', '0');
+  newActive.focus();
 
-  function setActiveItem(newActive) {
-    items.forEach(i => {
-      i.classList.remove('active');
-      i.setAttribute('tabindex', '-1');
-    });
-    newActive.classList.add('active');
-    newActive.setAttribute('tabindex', '0');
-    newActive.focus();
+  const listRect = menuList.getBoundingClientRect();
+  const itemRect = newActive.getBoundingClientRect();
 
-    // تمرير العنصر المحدد إلى الوسط إذا خارج العرض
-    const listRect = menuList.getBoundingClientRect();
-    const itemRect = newActive.getBoundingClientRect();
-
-    if (itemRect.top < listRect.top) {
-      newActive.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (itemRect.bottom > listRect.bottom) {
-      newActive.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }
+  if (itemRect.top < listRect.top) {
+    newActive.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else if (itemRect.bottom > listRect.bottom) {
+    newActive.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
 
-  // التعامل مع ضغطات الكيبورد لتحريك التحديد
-  document.querySelector('.menu-list').addEventListener('keydown', (e) => {
-    const currentIndex = items.findIndex(i => i.classList.contains('active'));
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      let nextIndex = (currentIndex + 1) % items.length;
-      setActiveItem(items[nextIndex]);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      let prevIndex = (currentIndex - 1 + items.length) % items.length;
-      setActiveItem(items[prevIndex]);
-    }
-  });
+  const activeIndex = items.findIndex(i => i === newActive);
+  updateCounter(activeIndex);
+}
 
-  // تعيين التركيز الأولي
-  items.forEach(i => i.setAttribute('tabindex', '-1'));
-  const initialActive = document.querySelector('.menu-item.active');
-  if (initialActive) {
-    initialActive.setAttribute('tabindex', '0');
+items.forEach(item => item.addEventListener('click', () => setActiveItem(item)));
+
+menuList.addEventListener('keydown', (e) => {
+  const currentIndex = items.findIndex(i => i.classList.contains('active'));
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    setActiveItem(items[(currentIndex + 1) % items.length]);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    setActiveItem(items[(currentIndex - 1 + items.length) % items.length]);
   }
+});
+
+items.forEach(i => i.setAttribute('tabindex', '-1'));
+const initialActive = document.querySelector('.menu-item.active');
+if (initialActive) {
+  initialActive.setAttribute('tabindex', '0');
+  updateCounter(items.indexOf(initialActive));
+}
 </script>
 
 </body>
