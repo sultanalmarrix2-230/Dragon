@@ -1,140 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Alisomali Menu with Keyboard Nav</title>
+<title>Alisomali Menu — Styled</title>
+
+<!-- خطوط مدمجة بسيطة -->
 <style>
-  body {
-    margin:0; background:#121212; font-family: Arial, sans-serif;
+  @font-face {
+    font-family: 'InterUIFallback';
+    src: local('Arial');
   }
+
+  :root{
+    --bg-glass: rgba(18,18,20,0.35);
+    --panel-border: rgba(255,87,0,0.18);
+    --accent: #ff5500;
+    --accent-2: #ff3f00;
+    --text: #efeef0;
+    --muted: #c0bfc1;
+    --glow: 0 6px 30px rgba(255,87,0,0.12);
+  }
+
+  /* IMPORTANT: make page transparent to allow overlay in-game */
+  html,body{
+    height:100%;
+    margin:0;
+    padding:0;
+    background: transparent !important; /* <-- يمنع الأبيض */
+    font-family: InterUIFallback, 'Segoe UI', Tahoma, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    color:var(--text);
+  }
+
+  /* Container */
   .menu {
-    width: 280px;
-    background: #1e1e1e;
-    border-radius: 6px;
-    border: 1px solid #ff5700;
-    color: white;
-    user-select: none;
-    box-shadow: 0 0 15px #ff5700a0;
-    padding: 10px 0;
-    font-size: 14px;
+    width: 300px;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 55px; /* عدّل لتناسب موقعك */
+    right: 28px;
+    z-index: 9999;
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    box-shadow: var(--glow);
+    border: 1px solid var(--panel-border);
   }
+
+  /* glass header with glow logo */
   .menu-header {
-    text-align:center; padding: 0 0 8px 0; border-bottom: 1px solid #ff5700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.20));
+    border-bottom: 1px solid rgba(255,87,0,0.08);
   }
-  .menu-header h1 {
-    margin: 0;
-    font-family: 'Arial Black', Arial, sans-serif;
-    font-size: 32px;
-    letter-spacing: 4px;
-    color: #ff3f00;
-    text-shadow:
-      0 0 5px #ff3f00,
-      0 0 10px #ff3f00,
-      0 0 20px #ff6e1a,
-      0 0 30px #ff6e1a;
+
+  .brand {
+    width:56px;
+    height:56px;
+    border-radius:10px;
+    background: linear-gradient(135deg, #ff7a34 0%, #ff3f00 60%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:800;
+    font-size:18px;
+    box-shadow: 0 6px 18px rgba(255,63,0,0.18), inset 0 -6px 18px rgba(255,255,255,0.06);
+    text-transform:uppercase;
+    letter-spacing:1px;
   }
-  .menu-header .subtitle {
-    color: #ff9500;
-    font-weight: bold;
-    font-size: 12px;
-    margin-top: 4px;
+
+  .header-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
   }
-  .menu-item {
-    padding: 10px 15px;
-    border-left: 4px solid transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: #d9d9d9;
-    margin-top: 4px;
-    font-weight: normal;
-    transition: background 0.2s, border-left-color 0.2s;
+  .header-title{
+    font-size:15px;
+    font-weight:800;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
-  .menu-item:first-child {
-    margin-top: 10px;
+  .header-sub{
+    font-size:11px;
+    color:var(--muted);
   }
-  .menu-item.active {
-    background: rgba(255, 87, 0, 0.3);
-    border-left: 4px solid #ff3f00;
-    color: white;
-    font-weight: bold;
+
+  /* menu body */
+  .menu-body{
+    background: linear-gradient(180deg, rgba(22,22,25,0.55), rgba(18,18,20,0.45));
+    padding:10px;
   }
-  .menu-item span {
-    margin-right: 10px;
+
+  .menu-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
   }
-  .menu-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 15px;
-    font-size: 11px;
-    color: #bfbfbf;
-    border-top: 1px solid #ff570033;
-    margin-top: 12px;
-    font-weight: 500;
+
+  .menu-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px;
+    border-radius:10px;
+    cursor:pointer;
+    user-select:none;
+    transition: all 160ms ease;
+    color:var(--muted);
+    border: 1px solid transparent;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  }
+
+  .menu-item .icon{
+    min-width:36px;
+    height:36px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    background: rgba(255,255,255,0.02);
+    color:var(--muted);
+    box-shadow: inset 0 -6px 12px rgba(0,0,0,0.25);
+  }
+
+  .menu-item .label{
+    flex:1;
+    font-weight:600;
+    font-size:14px;
+    color:var(--text);
+  }
+
+  .menu-item .chev{
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* active style */
+  .menu-item.active{
+    background: linear-gradient(90deg, rgba(255,87,0,0.12), rgba(255,63,0,0.06));
+    border: 1px solid rgba(255,63,0,0.18);
+    box-shadow: 0 6px 20px rgba(255,63,0,0.06);
+    color: #fff;
+  }
+  .menu-item.active .icon{
+    background: linear-gradient(180deg,#ff3f00,#ff8a3a);
+    color:#fff;
+    box-shadow: 0 6px 20px rgba(255,63,0,0.18), inset 0 -6px 20px rgba(255,255,255,0.06);
+  }
+
+  /* small footer */
+  .menu-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 12px;
+    font-size:12px;
+    color:var(--muted);
+    border-top:1px solid rgba(255,87,0,0.04);
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06));
+  }
+
+  /* hover + focus accessibility */
+  .menu-item:focus, .menu-item:hover{
+    outline:none;
+    transform: translateY(-2px);
+  }
+
+  /* small responsive */
+  @media (max-width:420px){
+    .menu{ right:12px; width:260px; top:18px; }
+    .brand{ width:48px; height:48px; font-size:16px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Menu Container -->
-<div class="menu" tabindex="0">
-  <!-- Header -->
+<div class="menu" tabindex="0" aria-label="Alisomali Menu">
   <div class="menu-header">
-    <h1>ALISOMALI</h1>
-    <div class="subtitle">Main Menu</div>
+    <div class="brand">ALI</div>
+    <div class="header-info">
+      <div class="header-title">ALISOMALI</div>
+      <div class="header-sub">Main Menu</div>
+    </div>
+    <!-- small dots / close button placeholder -->
+    <div style="width:12px"></div>
   </div>
 
-  <!-- Menu Items -->
-  <div id="menu-items">
-    <div class="menu-item active" tabindex="-1"><span>👁️</span> Visuals</div>
-    <div class="menu-item" tabindex="-1"><span>🧍</span> Player</div>
-    <div class="menu-item" tabindex="-1"><span>🔫</span> Weapons</div>
-    <div class="menu-item" tabindex="-1"><span>🌍</span> World</div>
-    <div class="menu-item" tabindex="-1"><span>🧑‍🤝‍🧑</span> Online Players</div>
-    <div class="menu-item" tabindex="-1"><span>🚗</span> Vehicles</div>
+  <div class="menu-body">
+    <div class="menu-list" id="menuList">
+      <div class="menu-item active" data-index="0" tabindex="-1">
+        <div class="icon">👁️</div>
+        <div class="label">Visuals</div>
+        <div class="chev">›</div>
+      </div>
+
+      <div class="menu-item" data-index="1" tabindex="-1">
+        <div class="icon">🧍</div>
+        <div class="label">Player</div>
+        <div class="chev">›</div>
+      </div>
+
+      <div class="menu-item" data-index="2" tabindex="-1">
+        <div class="icon">🔫</div>
+        <div class="label">Weapons</div>
+        <div class="chev">›</div>
+      </div>
+
+      <div class="menu-item" data-index="3" tabindex="-1">
+        <div class="icon">🌍</div>
+        <div class="label">World</div>
+        <div class="chev">›</div>
+      </div>
+
+      <div class="menu-item" data-index="4" tabindex="-1">
+        <div class="icon">🧑‍🤝‍🧑</div>
+        <div class="label">Online Players</div>
+        <div class="chev">›</div>
+      </div>
+
+      <div class="menu-item" data-index="5" tabindex="-1">
+        <div class="icon">🚗</div>
+        <div class="label">Vehicles</div>
+        <div class="chev">›</div>
+      </div>
+    </div>
   </div>
 
-  <!-- Footer -->
   <div class="menu-footer">
     <div>Alisomali is tuff</div>
-    <div>1/7</div>
+    <div id="pager">1/6</div>
   </div>
 </div>
 
 <script>
+  // Navigation logic
   const menu = document.querySelector('.menu');
   const items = Array.from(document.querySelectorAll('.menu-item'));
-  let currentIndex = 0;
+  const pager = document.getElementById('pager');
+  let current = 0;
 
-  function updateActive(newIndex) {
-    items[currentIndex].classList.remove('active');
-    currentIndex = newIndex;
-    if(currentIndex < 0) currentIndex = items.length -1;
-    if(currentIndex >= items.length) currentIndex = 0;
-    items[currentIndex].classList.add('active');
-    // تحديث التذييل 1/7 أو حسب العنصر المحدد
-    document.querySelector('.menu-footer div:last-child').textContent = `${currentIndex + 1}/${items.length}`;
+  function setActive(index){
+    items.forEach((it,i)=>{
+      it.classList.toggle('active', i===index);
+    });
+    current = (index + items.length) % items.length;
+    pager.textContent = `${current+1}/${items.length}`;
+    // scroll into view if container gets tall
+    const activeEl = items[current];
+    if(activeEl) activeEl.scrollIntoView({behavior:'smooth', block:'nearest'});
   }
 
-  // التركيز على المنيو تلقائياً
-  menu.focus();
+  // click to activate
+  items.forEach((it, i)=>{
+    it.addEventListener('click', ()=> setActive(i));
+  });
 
-  // التقاط ضغطات الأسهم
-  menu.addEventListener('keydown', e => {
-    if(e.key === 'ArrowDown') {
+  // keyboard: Up, Down, Enter, Esc (close)
+  menu.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowDown'){
       e.preventDefault();
-      updateActive(currentIndex + 1);
+      setActive(current+1);
+    } else if(e.key === 'ArrowUp'){
+      e.preventDefault();
+      setActive(current-1);
+    } else if(e.key === 'Enter'){
+      e.preventDefault();
+      // هنا تقدر تربط فتح صفحة فرعية أو تنفيذ دالة
+      const active = items[current];
+      // مثال: طباعة الاسم بالكونسول
+      console.log('activate:', active.querySelector('.label').textContent);
+      // TODO: نفّذ command للعبة أو حدث
+    } else if(e.key === 'Escape'){
+      e.preventDefault();
+      // لو تبي تخفي المينو بدل إغلاقه تقدر تعمل:
+      menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
     }
-    else if(e.key === 'ArrowUp') {
-      e.preventDefault();
-      updateActive(currentIndex - 1);
+  });
+
+  // افتح المنيو بودفع تركيز عند التحميل
+  setTimeout(()=> {
+    menu.focus();
+    setActive(0);
+  }, 60);
+
+  // لو تبغى تقدر تضيف دالة لفتح/غلق بالكيبورد العام - هنا مثال: زر M
+  window.addEventListener('keydown', (e)=>{
+    if(e.key.toLowerCase() === 'm'){
+      const vis = getComputedStyle(menu).display !== 'none';
+      menu.style.display = vis ? 'none' : 'block';
+      if(!vis) menu.focus();
     }
   });
 </script>
-
 </body>
 </html>
